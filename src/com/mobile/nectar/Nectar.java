@@ -23,7 +23,7 @@ public final class Nectar {
         login();
     }
 
-    public NectarAccount getProfile() {
+    public NectarAccount getAccount() {
         return profile;
     }
 
