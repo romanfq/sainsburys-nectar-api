@@ -20,39 +20,39 @@ public class NectarOffer {
     @SerializedName("sponsor_id")
     private String sponsorId;
     @SerializedName("sponsor_image_code")
-    private String sponsor_image_code;
+    private String sponsorImageCode;
     @SerializedName("opted_in")
-    private boolean opted_in;
+    private boolean optedIn;
     @SerializedName("offer_id")
-    private String offer_id;
+    private String offerId;
     @SerializedName("progress_text")
     private String progress_text;
     @SerializedName("isExclusive")
     private boolean isExclusive;
     @SerializedName("terms_conditions")
-    private String terms_conditions;
+    private String termsAndConditions;
     @SerializedName("offer_points")
-    private String offer_points;
+    private String offerPoints;
     @SerializedName("opt_in_type")
-    private String opt_in_type;
+    private String optInType;
     @SerializedName("offer_description")
-    private String offer_description;
+    private String offerDescription;
     @SerializedName("product_image_code")
-    private String product_image_code;
+    private String productImageCode;
     @SerializedName("redemption_status")
-    private String redemption_status;
+    private String redemptionStatus;
     @SerializedName("valid_from")
-    private String valid_from;
+    private String validFrom;
     @SerializedName("valid_till")
-    private String valid_till;
+    private String validTill;
     @SerializedName("offer_type")
-    private String offer_type;
+    private String offerType;
     @SerializedName("offer_date_type")
-    private String offer_date_type;
+    private String offerDateType;
     @SerializedName("hasOfferBeenRead")
     private boolean hasOfferBeenRead;
     @SerializedName("pseudo_opted_in")
-    private boolean pseudo_opted_in;
+    private boolean pseudoOptedIn;
 
     private String offer_message_1;
     private String offer_message_2;
@@ -60,31 +60,31 @@ public class NectarOffer {
     private String offer_message_4;
     private String offer_message_5;
 
-    public String getTreatment_code() {
+    public String getTreatmentCode() {
         return treatmentCode;
     }
 
-    public String getCoupon_id() {
+    public String getCouponId() {
         return couponId;
     }
 
-    public String getSponsor_id() {
+    public String getSponsorId() {
         return sponsorId;
     }
 
-    public String getSponsor_image_code() {
-        return sponsor_image_code;
+    public String getSponsorImageCode() {
+        return sponsorImageCode;
     }
 
     public boolean isOpted_in() {
-        return opted_in;
+        return optedIn;
     }
 
-    public String getOffer_id() {
-        return offer_id;
+    public String getOfferId() {
+        return offerId;
     }
 
-    public String getProgress_text() {
+    public String getProgressTest() {
         return progress_text;
     }
 
@@ -92,52 +92,52 @@ public class NectarOffer {
         return isExclusive;
     }
 
-    public String getTerms_conditions() {
-        return terms_conditions;
+    public String getTermsAndConditions() {
+        return termsAndConditions;
     }
 
     public String getOffer_points() {
-        return offer_points;
+        return offerPoints;
     }
 
     public String getOpt_in_type() {
-        return opt_in_type;
+        return optInType;
     }
 
-    public String getOffer_description() {
-        return offer_description;
+    public String getOfferDescription() {
+        return offerDescription;
     }
 
-    public String getProduct_image_code() {
-        return product_image_code;
+    public String getProductImageCode() {
+        return productImageCode;
     }
 
     public String getRedemption_status() {
-        return redemption_status;
+        return redemptionStatus;
     }
 
-    public String getValid_from() {
-        return valid_from;
+    public String getValidFrom() {
+        return validFrom;
     }
 
-    public String getValid_till() {
-        return valid_till;
+    public String getValidTill() {
+        return validTill;
     }
 
-    public String getOffer_type() {
-        return offer_type;
+    public String getOfferType() {
+        return offerType;
     }
 
-    public String getOffer_date_type() {
-        return offer_date_type;
+    public String getOfferDateType() {
+        return offerDateType;
     }
 
-    public boolean isHasOfferBeenRead() {
+    public boolean hasOfferBeenRead() {
         return hasOfferBeenRead;
     }
 
     public boolean isPseudo_opted_in() {
-        return pseudo_opted_in;
+        return pseudoOptedIn;
     }
 
     public String getOffer_message_1() {

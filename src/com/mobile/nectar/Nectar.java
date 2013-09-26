@@ -1,5 +1,6 @@
 package com.mobile.nectar;
 
+
 import java.io.IOException;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public final class Nectar {
 
     /**
      * Refreshes the details of the account using the authentication details
+     *
+     * @throws java.io.IOException
      */
     public void refesh() throws IOException {
         login();
@@ -44,8 +47,17 @@ public final class Nectar {
         String jsonProfileData = NectarWebService.getProfileData(cardNumber, basicAuthToken);
         this.profile = NectarUtils.buildSainsburysProfile(jsonProfileData);
 
-        String jsonOffersData = NectarWebService.getOffersData(cardNumber + "/offers", basicAuthToken);
+        String jsonOffersData = NectarWebService.getOffersData(cardNumber, basicAuthToken);
         this.offers = NectarUtils.buildSainsburysOffers(jsonOffersData);
+    }
+
+    public void OptInToOffer(NectarOffer offer) throws IOException {
+        OptInOffer optInOffer = new OptInOffer();
+        optInOffer.setOffer_id(offer.getOfferId());
+        optInOffer.setOpted_in("true");
+        optInOffer.setTreatment_code(offer.getTreatmentCode());
+        
+        NectarWebService.optInToOffer(cardNumber, basicAuthToken, optInOffer);
     }
 
 }

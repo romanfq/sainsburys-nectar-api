@@ -13,11 +13,11 @@ public class NectarAccount {
     @SerializedName("currency")
     private String currency;
     @SerializedName("points_balance")
-    private String points_balance;
+    private String pointsBalance;
     @SerializedName("monetary_value")
-    private String monetary_value;
+    private String monetaryValue;
     @SerializedName("account_type")
-    private String account_type;
+    private String accountType;
 
     public String getName() {
         return name;
@@ -28,15 +28,15 @@ public class NectarAccount {
     }
 
     public String getPoints_balance() {
-        return points_balance;
+        return pointsBalance;
     }
 
     public String getMonetary_value() {
-        return monetary_value;
+        return monetaryValue;
     }
 
     public String getAccount_type() {
-        return account_type;
+        return accountType;
     }
 
 }
