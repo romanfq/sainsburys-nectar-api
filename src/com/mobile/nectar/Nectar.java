@@ -23,6 +23,13 @@ public final class Nectar {
         login();
     }
 
+    /**
+     * Refreshes the details of the account using the authentication details
+     */
+    public void refesh() throws IOException {
+        login();
+    }
+
     public NectarAccount getAccount() {
         return profile;
     }
@@ -42,4 +49,3 @@ public final class Nectar {
     }
 
 }
-
