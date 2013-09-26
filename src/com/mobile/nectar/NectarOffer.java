@@ -5,31 +5,53 @@
  */
 package com.mobile.nectar;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  *
  * @author aboulton
  */
 public class NectarOffer {
 
-    private String treatment_code;
-    private String coupon_id;
-    private String sponsor_id;
+    @SerializedName("treatment_code")
+    private String treatmentCode;
+    @SerializedName("coupon_id")
+    private String couponId;
+    @SerializedName("sponsor_id")
+    private String sponsorId;
+    @SerializedName("sponsor_image_code")
     private String sponsor_image_code;
+    @SerializedName("opted_in")
     private boolean opted_in;
+    @SerializedName("offer_id")
     private String offer_id;
+    @SerializedName("progress_text")
     private String progress_text;
+    @SerializedName("isExclusive")
     private boolean isExclusive;
+    @SerializedName("terms_conditions")
     private String terms_conditions;
+    @SerializedName("offer_points")
     private String offer_points;
+    @SerializedName("opt_in_type")
     private String opt_in_type;
+    @SerializedName("offer_description")
     private String offer_description;
+    @SerializedName("product_image_code")
     private String product_image_code;
+    @SerializedName("redemption_status")
     private String redemption_status;
+    @SerializedName("valid_from")
     private String valid_from;
+    @SerializedName("valid_till")
     private String valid_till;
+    @SerializedName("offer_type")
     private String offer_type;
+    @SerializedName("offer_date_type")
     private String offer_date_type;
+    @SerializedName("hasOfferBeenRead")
     private boolean hasOfferBeenRead;
+    @SerializedName("pseudo_opted_in")
     private boolean pseudo_opted_in;
 
     private String offer_message_1;
@@ -39,15 +61,15 @@ public class NectarOffer {
     private String offer_message_5;
 
     public String getTreatment_code() {
-        return treatment_code;
+        return treatmentCode;
     }
 
     public String getCoupon_id() {
-        return coupon_id;
+        return couponId;
     }
 
     public String getSponsor_id() {
-        return sponsor_id;
+        return sponsorId;
     }
 
     public String getSponsor_image_code() {
