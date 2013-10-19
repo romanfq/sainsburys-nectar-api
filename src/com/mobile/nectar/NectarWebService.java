@@ -24,7 +24,8 @@ class NectarWebService {
     private final static String ENDPOINT_BASE = "https://mobile.nectar.com/nectar-loyalty-api/collectors/";
     private final static String OFFERS_URL = ENDPOINT_BASE + "%s/offers";
     private final static String OPT_IN_URL = ENDPOINT_BASE + "%s/offers/batch";
-    private final static String USER_AGENT = "SainsburysMobileApp/1.0.0 (Android/ABC100-1; Mobile/3.2.1.0; en_GB; 0012345678912)";
+    private final static String TRACK_OFFER_URL = ENDPOINT_BASE + "%s/offertracking/batch";
+    private final static String USER_AGENT = "SainsburysMobileApp/2.10.0 (Android/ABC100-1; Mobile/3.2.1.0; en_GB; 0012345678912)";
 
     private final static Gson gson = new Gson();
 
@@ -46,13 +47,18 @@ class NectarWebService {
         return jsonProfileData;
     }
 
-    protected static void optInToOffer(String cardNumber, String basicAuthToken, OptInOffer optInOffer) throws IOException {
+    protected static void optInToOffer(String cardNumber, String basicAuthToken, OptInOffer optInOffer, OfferTracking offerTrack) throws IOException {
         String optInUrl = String.format(OPT_IN_URL, cardNumber);
+        String trackingUrl = String.format(TRACK_OFFER_URL, cardNumber);
 
         OptInOfferContainer container = new OptInOfferContainer();
         container.getOpt_ins().add(optInOffer);
 
+        OfferTrackingContainer trackingContainer = new OfferTrackingContainer();
+        trackingContainer.getTrackingOffers().add(offerTrack);
+
         postOptInOffer(optInUrl, basicAuthToken, gson.toJson(container));
+        postTrackOffer(trackingUrl, basicAuthToken, gson.toJson(trackingContainer));
     }
 
     /*
@@ -89,15 +95,30 @@ class NectarWebService {
         con.setRequestMethod("POST");
         con.setDoOutput(true);
         setHeaders(con, basicAuthToken);
-        
+
         //One additional header required when doing opting into offers.
         con.addRequestProperty("Content-Type", "application/vnd.com.nectar_1+json");
+        try (DataOutputStream output = new DataOutputStream(con.getOutputStream())) {
+            output.writeBytes(optInJsonData);
+            output.flush();
+        }
+    }
 
-        //Write the POST body
-        DataOutputStream output = new DataOutputStream(con.getOutputStream());
-        output.writeBytes(optInJsonData);
-        output.flush();
-        output.close();
+    private static void postTrackOffer(String url, String basicAuthToken, String optInJsonData) throws MalformedURLException, IOException {
+        {
+            URL obj = new URL(url);
+            HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            setHeaders(con, basicAuthToken);
+
+            con.addRequestProperty("Content-Type", "application/vnd.com.nectar_1+json");
+
+            try (DataOutputStream output = new DataOutputStream(con.getOutputStream())) {
+                output.writeBytes(optInJsonData);
+                output.flush();
+            }
+        }
     }
 
 }

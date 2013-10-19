@@ -51,13 +51,18 @@ public final class Nectar {
         this.offers = NectarUtils.buildSainsburysOffers(jsonOffersData);
     }
 
-    public void OptInToOffer(NectarOffer offer) throws IOException {
+    public void optInToOffer(NectarOffer offer) throws IOException {
         OptInOffer optInOffer = new OptInOffer();
         optInOffer.setOffer_id(offer.getOfferId());
         optInOffer.setOpted_in("true");
         optInOffer.setTreatment_code(offer.getTreatmentCode());
         
-        NectarWebService.optInToOffer(cardNumber, basicAuthToken, optInOffer);
+        OfferTracking offerTrack = new OfferTracking();
+        offerTrack.setActivity("PSEUDO OPTIN");
+        offerTrack.setTreatmentCode(offer.getTreatmentCode());
+        offerTrack.setOfferId(offer.getOfferId());
+        
+        NectarWebService.optInToOffer(cardNumber, basicAuthToken, optInOffer, offerTrack);
     }
 
 }

@@ -10,18 +10,18 @@ import com.google.gson.annotations.SerializedName;
 /**
  *
  * @author Adam Boulton
- * 
+ *
  */
 final class OptInOffer {
-
-    @SerializedName("offer_id")
-    private String offer_id;
 
     @SerializedName("opted_in")
     private String opted_in;
 
     @SerializedName("treatment_code")
     private String treatment_code;
+
+    @SerializedName("offer_id")
+    private String offer_id;
 
     public String getOffer_id() {
         return offer_id;
@@ -46,6 +46,5 @@ final class OptInOffer {
     public void setTreatment_code(String treatment_code) {
         this.treatment_code = treatment_code;
     }
-    
-    
+
 }
